@@ -208,7 +208,20 @@ img{max-width:100%;display:block}
 .price.featured:hover{transform:scale(1.04) translateY(-6px)}
 .price.featured h3,.price.featured .amt,.price.featured li{color:#fff}
 .price.featured .feat-list li::before{color:#fff}
-.popular{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--teal-dark);color:#fff;padding:6px 16px;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.popular{position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:#F59E0B;color:#fff;padding:9px 22px;border-radius:999px;font-family:'Syne',sans-serif;font-size:.95rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 10px 24px -8px rgba(245,158,11,.55);white-space:nowrap}
+/* Audience-tinted pricing cards */
+.price.student{border-color:#B2DFDB}
+.price.student h3{color:var(--teal-dark)}
+.price.student.featured{background:linear-gradient(135deg,#00897B 0%,#26A69A 55%,#4DB6AC 100%)}
+.price.corporate{border-color:#C7B9E8}
+.price.corporate h3{color:#4C1D95}
+.price.corporate .amt{color:#4C1D95}
+.price.corporate.featured{background:linear-gradient(135deg,#4C1D95 0%,#6D28D9 55%,#7C3AED 100%);box-shadow:0 30px 60px -20px rgba(76,29,149,.5)}
+.price.corporate.featured h3,.price.corporate.featured .amt,.price.corporate.featured li{color:#fff}
+.price.corporate .btn-ghost{border-color:#6D28D9;color:#4C1D95}
+.price.corporate .btn-ghost:hover{background:#6D28D9;color:#fff}
+.price.corporate.featured .btn-primary{background:#fff;color:#4C1D95}
+.price.corporate.featured .btn-primary:hover{background:var(--ink);color:#fff}
 .price h3{margin-bottom:6px}
 .price .tag{font-size:.86rem;color:var(--muted);margin-bottom:20px}
 .price.featured .tag{color:rgba(255,255,255,.85)}
@@ -476,12 +489,12 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
     <div class="section-head reveal">
       <span class="eyebrow">Course Fee</span>
       <h2>Four pricing options to suit your profile.</h2>
-      <p class="section-sub">Payments can be split across two instalments.</p>
+      <p class="section-sub">All prices are inclusive of GST · Payments can be split across two instalments.</p>
     </div>
     <div class="price-grid" style="grid-template-columns:repeat(2,1fr);max-width:900px;margin-left:auto;margin-right:auto">
-      <div class="price reveal">
+      <div class="price student reveal">
         <h3>Students</h3><p class="tag">Standard admission fee</p>
-        <span class="amt">₹18,500 <small>+ GST</small></span>
+        <span class="amt">₹18,500 <small>(incl. GST)</small></span>
         <ul class="feat-list">
           <li>30 hours of live instruction across 8 domains</li>
           <li>Google Classroom recordings, notes &amp; resources</li>
@@ -491,10 +504,10 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
         </ul>
         <a href="https://forms.gle/ckRThBQyEpUayAWF7" target="_blank" rel="noopener" class="btn btn-ghost">Enroll Now</a>
       </div>
-      <div class="price featured reveal">
+      <div class="price student featured reveal">
         <div class="popular">Early Bird</div>
         <h3>Students</h3><p class="tag">Register ahead of the batch start</p>
-        <span class="amt">₹15,500 <small>+ GST</small></span>
+        <span class="amt">₹15,500 <small>(incl. GST)</small></span>
         <ul class="feat-list">
           <li>30 hours of live instruction across 8 domains</li>
           <li>Google Classroom recordings, notes &amp; resources</li>
@@ -504,9 +517,9 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
         </ul>
         <a href="https://forms.gle/ckRThBQyEpUayAWF7" target="_blank" rel="noopener" class="btn btn-primary">Enroll Now</a>
       </div>
-      <div class="price reveal">
+      <div class="price corporate reveal">
         <h3>Corporate Professionals</h3><p class="tag">Standard admission fee</p>
-        <span class="amt">₹25,000 <small>+ GST</small></span>
+        <span class="amt">₹25,000 <small>(incl. GST)</small></span>
         <ul class="feat-list">
           <li>30 hours of live instruction across 8 domains</li>
           <li>Google Classroom recordings, notes &amp; resources</li>
@@ -516,10 +529,10 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
         </ul>
         <a href="https://forms.gle/ckRThBQyEpUayAWF7" target="_blank" rel="noopener" class="btn btn-ghost">Enroll Now</a>
       </div>
-      <div class="price featured reveal">
+      <div class="price corporate featured reveal">
         <div class="popular">Early Bird</div>
         <h3>Corporate Professionals</h3><p class="tag">Register ahead of the batch start</p>
-        <span class="amt">₹22,000 <small>+ GST</small></span>
+        <span class="amt">₹22,000 <small>(incl. GST)</small></span>
         <ul class="feat-list">
           <li>30 hours of live instruction across 8 domains</li>
           <li>Google Classroom recordings, notes &amp; resources</li>
@@ -555,7 +568,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
     <div class="foot-grid">
       <div class="foot-brand">
         <div class="logo" style="color:#26A69A;display:flex;align-items:center;gap:8px">
-          <img src="/__l5e/assets-v1/cbabdb68-f1b2-44ea-84da-35e45b3980a8/logo.png" alt="PeopleProcess logo" style="width:44px;height:44px;object-fit:contain" />
+          <img src="/__l5e/assets-v1/f6e98d44-cc33-438e-a7a7-992b3e240cea/mentesquare-final.png" alt="MenteSquare logo" style="width:56px;height:56px;object-fit:contain" />
           Mente<span style="color:var(--ink)">Square</span>
         </div>
         <p>PeopleProcess: Business Psychology in Action — PEOPLE.PERFORMANCE.POSSIBILITIES</p>
