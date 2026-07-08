@@ -62,13 +62,13 @@ img{max-width:100%;display:block}
 /* Top Carousel */
 .topbar{margin-top:72px;background:var(--grad);color:#fff;overflow:hidden;position:relative;border-bottom:1px solid rgba(255,255,255,.15)}
 .topbar-track{display:flex;transition:transform .7s cubic-bezier(.65,.05,.36,1)}
-.topbar-slide{flex:0 0 100%;display:flex;align-items:center;justify-content:center;gap:18px;padding:14px 24px;text-align:center;font-weight:600;font-size:1.1rem;letter-spacing:.01em;cursor:pointer;color:#fff;transition:background .2s}
+.topbar-slide{flex:0 0 100%;display:flex;align-items:center;justify-content:center;gap:20px;padding:18px 24px;text-align:center;font-family:'Syne',sans-serif;font-weight:600;font-size:1.35rem;letter-spacing:.01em;cursor:pointer;color:#FFF8E7;transition:background .2s}
 .topbar-slide:hover{background:rgba(255,255,255,.08)}
-.topbar-slide .tb-tag{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.22);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.topbar-slide .tb-tag{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:999px;background:#FFF8E7;color:var(--teal-dark);font-family:'Inter',sans-serif;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
 .topbar-dots{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);display:flex;gap:6px}
 .topbar-dots button{width:6px;height:6px;border-radius:50%;border:none;background:rgba(255,255,255,.4);cursor:pointer;padding:0;transition:.25s}
 .topbar-dots button.active{background:#fff;width:18px;border-radius:3px}
-@media (max-width:600px){.topbar-slide{font-size:.95rem;gap:10px;flex-wrap:wrap;padding:12px 16px}}
+@media (max-width:600px){.topbar-slide{font-size:1.05rem;gap:10px;flex-wrap:wrap;padding:14px 16px}}
 
 /* Hero registration form */
 .hero-form{background:#fff;border:1px solid #E5E7EB;border-radius:24px;padding:32px;box-shadow:0 30px 80px -20px rgba(0,137,123,.2);position:relative}
@@ -315,9 +315,9 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
 
 <div class="topbar" id="topbar" aria-label="Announcements">
   <div class="topbar-track" id="topbarTrack">
-    <a href="#pricing" class="topbar-slide"><span class="tb-tag">Early Bird Offer</span><span>Save ₹7,000 — Register early at <strong>₹38,000 + GST</strong> (Standard ₹45,000).</span></a>
+    <a href="#pricing" class="topbar-slide"><span class="tb-tag">Early Bird Offer</span><span>Save up to ₹3,000 — Early bird pricing from <strong>₹15,500</strong> (incl. GST).</span></a>
     <a href="#trainers" class="topbar-slide"><span class="tb-tag">Faculty</span><span>Learn from 11 international specialists — Dr. Stephen Benton, Anamika Viswanathan, Kate NG &amp; more.</span></a>
-    <a href="#register" class="topbar-slide"><span class="tb-tag">Batch Starts</span><span>August 2026 · Weekend evenings. <span style="text-decoration:underline">Reserve seat →</span></span></a>
+    <a href="#register" class="topbar-slide"><span class="tb-tag">Batch Starts</span><span>September 2026 · Weekend evenings. <span style="text-decoration:underline">Reserve seat →</span></span></a>
   </div>
   <div class="topbar-dots" id="topbarDots"></div>
 </div>
@@ -326,7 +326,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
   <div class="container">
     <div class="hero-grid">
       <div>
-        <div class="badge">New Cohort · August 2026</div>
+        <div class="badge">New Cohort · September 2026</div>
         <img src="/__l5e/assets-v1/cbabdb68-f1b2-44ea-84da-35e45b3980a8/logo.png" alt="PeopleProcess logo" style="width:96px;height:96px;object-fit:contain;display:block;margin:10px 0 6px" />
         <h1 style="margin:0 0 10px">PeopleProcess:<br/>Business Psychology<br/>in Action</h1>
         <p style="font-family:'Syne',sans-serif;font-weight:600;font-size:1.15rem;color:var(--teal-dark);margin:0 0 18px;letter-spacing:.01em">PEOPLE. PERFORMANCE. POSSIBILITIES.</p>
@@ -336,20 +336,16 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
           <a href="#who" class="btn btn-outline">Know More</a>
         </div>
       </div>
-      <form class="hero-form" id="register" onsubmit="event.preventDefault();alert('Thanks! We\\'ll reach out within 24 hours.');this.reset();">
+      <form class="hero-form" id="register" style="max-width:360px;padding:24px" onsubmit="event.preventDefault();alert('Thanks! We\\'ll reach out within 24 hours.');this.reset();">
         <h4>Reserve Your Seat</h4>
-        <p class="sub">Batch starts August 2026 · Weekend evenings. Limited seats.</p>
+        <p class="sub">Batch starts September 2026 · Limited seats.</p>
         <div class="form-row"><label>Full Name</label><input type="text" required placeholder="Your full name" /></div>
         <div class="form-row"><label>Email Address</label><input type="email" required placeholder="you@email.com" /></div>
-        <div class="form-row"><label>Phone Number</label><input type="tel" required placeholder="+91 98765 43210" /></div>
         <div class="form-row"><label>You Are A</label>
-          <select required><option value="">Select your profile</option><option>Student</option><option>HR Professional</option><option>Mid-Career Professional</option><option>Practitioner</option></select>
-        </div>
-        <div class="form-row"><label>How did you hear about us?</label>
-          <select required><option value="">Select an option</option><option>Instagram</option><option>LinkedIn</option><option>Friend / Referral</option><option>Google Search</option><option>Newsletter</option><option>Other</option></select>
+          <select required><option value="">Select your profile</option><option>Student</option><option>Student (Early Bird)</option><option>Corporate Professional</option><option>Corporate Professional (Early Bird)</option></select>
         </div>
         <button type="submit" class="btn btn-full">Reserve My Spot →</button>
-        <p class="reg-note">Limited seats per cohort. Enroll early to lock in your slot.</p>
+        <p class="reg-note">Limited seats per cohort.</p>
 </form>
     </div>
   </div>
@@ -373,7 +369,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
         <span class="eyebrow">Programme Snapshot</span>
         <h2>30 hours, 8 domains, one certification.</h2>
         <div class="outcome-grid">
-          <div class="outcome"><span class="big">3 Mo</span><span class="desc">Duration — 30 hours of live, interactive instruction.</span></div>
+          <div class="outcome"><span class="big">3</span><span class="desc">Months Duration — 30 hours of live, interactive instruction.</span></div>
           <div class="outcome"><span class="big">8</span><span class="desc">Specialist-taught domains across Business Psychology.</span></div>
           <div class="outcome"><span class="big">11</span><span class="desc">International faculty members across coaching, L&amp;D and OD.</span></div>
           <div class="outcome"><span class="big">1:1</span><span class="desc">Personal coaching session on your way forward.</span></div>
