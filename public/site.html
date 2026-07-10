@@ -211,18 +211,22 @@ img{max-width:100%;display:block}
 .price.featured .feat-list li::before{color:#fff}
 .popular{position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:#F59E0B;color:#fff;padding:9px 22px;border-radius:999px;font-family:'Syne',sans-serif;font-size:.95rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 10px 24px -8px rgba(245,158,11,.55);white-space:nowrap}
 /* Audience-tinted pricing cards */
-.price.student{border-color:#B2DFDB}
-.price.student h3{color:var(--teal-dark)}
-.price.student.featured{background:linear-gradient(135deg,#00897B 0%,#26A69A 55%,#4DB6AC 100%)}
-.price.corporate{border-color:#A8DADC}
-.price.corporate h3{color:#2B7A8D}
-.price.corporate .amt{color:#2B7A8D}
-.price.corporate.featured{background:linear-gradient(135deg,#3A9AAD 0%,#5EBAC9 55%,#84D3DE 100%);box-shadow:0 30px 60px -20px rgba(43,122,141,.4)}
+.price.student{border-color:#A8DADC}
+.price.student h3{color:#2B7A8D}
+.price.student .amt{color:#2B7A8D}
+.price.student.featured{background:linear-gradient(135deg,#3A9AAD 0%,#5EBAC9 55%,#84D3DE 100%);box-shadow:0 30px 60px -20px rgba(43,122,141,.4)}
+.price.student.featured h3,.price.student.featured .amt,.price.student.featured li{color:#fff}
+.price.student .btn-ghost{border-color:#3A9AAD;color:#2B7A8D}
+.price.student .btn-ghost:hover{background:#3A9AAD;color:#fff}
+.price.student.featured .btn-primary{background:#fff;color:#2B7A8D}
+.price.corporate{border-color:#B2DFDB}
+.price.corporate h3{color:var(--teal-dark)}
+.price.corporate .amt{color:var(--teal-dark)}
+.price.corporate.featured{background:linear-gradient(135deg,#00897B 0%,#26A69A 55%,#4DB6AC 100%);box-shadow:0 30px 60px -20px rgba(0,137,123,.5)}
 .price.corporate.featured h3,.price.corporate.featured .amt,.price.corporate.featured li{color:#fff}
-.price.corporate .btn-ghost{border-color:#3A9AAD;color:#2B7A8D}
-.price.corporate .btn-ghost:hover{background:#3A9AAD;color:#fff}
-.price.corporate.featured .btn-primary{background:#fff;color:#2B7A8D}
-.price.corporate.featured .btn-primary:hover{background:var(--ink);color:#fff}
+.price.corporate.featured .btn-primary{background:#fff;color:var(--teal-dark)}
+
+
 .price h3{margin-bottom:6px}
 .price .tag{font-size:.86rem;color:var(--muted);margin-bottom:20px}
 .price.featured .tag{color:rgba(255,255,255,.85)}
@@ -350,7 +354,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
           <a href="#who" class="btn btn-outline">Know More</a>
         </div>
       </div>
-      <form class="hero-form" id="register" style="max-width:360px;padding:24px" onsubmit="event.preventDefault();alert('Thanks! We\\'ll reach out within 24 hours.');this.reset();">
+      <form class="hero-form" id="register" style="max-width:360px;padding:24px;margin-left:auto" onsubmit="event.preventDefault();alert('Thanks! We will reach out within 24 hours.');this.reset();">
         <h4>Reserve Your Seat</h4>
         <p class="sub">Batch starts September 2026 · Limited seats.</p>
         <div class="form-row"><label>Full Name</label><input type="text" required placeholder="Your full name" /></div>
