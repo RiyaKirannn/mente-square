@@ -107,7 +107,7 @@ const CONTACT_STYLES = `
 /* Page loader */
 #contact-page #page-loader{position:fixed;inset:0;z-index:9999;background:var(--off);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity .5s ease,visibility .5s ease}
 #contact-page #page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-#contact-page #page-loader .loader-logo{width:104px;height:104px;object-fit:contain;animation:loader-bob 1.6s ease-in-out infinite}
+#contact-page #page-loader .loader-logo{width:160px;height:160px;object-fit:contain;animation:loader-bob 1.6s ease-in-out infinite}
 #contact-page #page-loader .loader-ring{width:56px;height:56px;border-radius:50%;border:3px solid var(--teal-light);border-top-color:var(--teal);animation:loader-spin .9s linear infinite}
 #contact-page #page-loader .loader-text{font-family:'Syne',sans-serif;font-weight:600;color:var(--teal-dark);letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
 @keyframes loader-spin{to{transform:rotate(360deg)}}
@@ -134,9 +134,9 @@ const CONTACT_STYLES = `
 
 // Same CDN asset URLs already used elsewhere in this project (see public/site.html).
 const ASSETS = {
-  navLogo: "/__l5e/assets-v1/e2c072bc-406e-4cc8-ad6e-a6126d30bab3/mentesquare-logo.png",
-  loaderLogo: "/__l5e/assets-v1/cbabdb68-f1b2-44ea-84da-35e45b3980a8/logo.png",
-  footerLogo: "/__l5e/assets-v1/f6e98d44-cc33-438e-a7a7-992b3e240cea/mentesquare-final.png",
+  navLogo: "/images/mentesquare-logo.png",
+  loaderLogo: "/images/logo.png",
+  footerLogo: "/images/mentesquare-final.png",
 };
 
 const FONT_HREF =
@@ -192,10 +192,26 @@ export default function ContactPage() {
     };
   }, []);
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    e.currentTarget.reset();
+    const formData = new FormData(e.currentTarget);
+    formData.append("access_key", "YOUR_ACCESS_KEY_HERE"); // Replace with your real key
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubmitted(true);
+        e.currentTarget.reset();
+      } else {
+        alert("Something went wrong, please try again.");
+      }
+    } catch (error) {
+      alert("Something went wrong, please try again.");
+    }
   };
 
   const closeNav = () => setNavOpen(false);
@@ -264,19 +280,19 @@ export default function ContactPage() {
                 <div id="contactFormFields">
                   <div className="form-row">
                     <label>Full Name</label>
-                    <input type="text" required placeholder="Your full name" />
+                    <input type="text" name="name" required placeholder="Your full name" />
                   </div>
                   <div className="form-row">
                     <label>Email Address</label>
-                    <input type="email" required placeholder="you@email.com" />
+                    <input type="email" name="email" required placeholder="you@email.com" />
                   </div>
                   <div className="form-row">
                     <label>Phone Number</label>
-                    <input type="tel" placeholder="+91 00000 00000" />
+                    <input type="tel" name="phone" placeholder="+91 00000 00000" />
                   </div>
                   <div className="form-row">
                     <label>You Are A</label>
-                    <select required defaultValue="">
+                    <select name="profile" required defaultValue="">
                       <option value="">Select your profile</option>
                       <option>Student</option>
                       <option>HR Professional</option>
@@ -286,7 +302,7 @@ export default function ContactPage() {
                   </div>
                   <div className="form-row">
                     <label>Message</label>
-                    <textarea required placeholder="Tell us what you'd like to know…" />
+                    <textarea name="message" required placeholder="Tell us what you'd like to know…" />
                   </div>
                   <button type="submit" className="btn btn-primary btn-full">
                     Send Message →
