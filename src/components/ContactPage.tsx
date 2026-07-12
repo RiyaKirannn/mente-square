@@ -195,7 +195,7 @@ export default function ContactPage() {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE"); // Replace with your real key
+    formData.append("access_key", "ab5e1565-3cc9-4335-b2fc-0e47de9221fe"); // Replace with your real key
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
