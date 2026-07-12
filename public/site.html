@@ -464,6 +464,33 @@
       z-index: 2
     }
 
+    .hero-form-success {
+      display: none;
+      text-align: center;
+      padding: 28px 8px;
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp .5s ease forwards
+    }
+    .hero-form-success.visible { display: block }
+    .hero-form-success .tick {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.22);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0 auto 18px;
+      border: 2px solid rgba(255,255,255,.5)
+    }
+    .hero-form-success h4 { color: #fff; font-family: 'Syne'; font-size: 1.15rem; margin-bottom: 10px }
+    .hero-form-success p { color: rgba(255,255,255,.85); font-size: .88rem; line-height: 1.6 }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(18px) } to { opacity:1; transform:translateY(0) } }
+
     /* Trainer avatar motion */
     @keyframes floaty {
 
@@ -1818,28 +1845,34 @@
             <a href="#who" class="btn btn-outline">Know More</a>
           </div>
         </div>
-        <form class="hero-form" id="heroRegister" style="max-width:360px;padding:24px;margin-left:auto"
-          onsubmit="return handleRegisterSubmit(event, this);">
-          <h4>Reserve Your Seat</h4>
-          <p class="sub">Batch starts September 2026 · Limited seats.</p>
-          <div class="form-row"><label>Full Name</label><input type="text" name="name" required
-              placeholder="Your full name" /></div>
-          <div class="form-row"><label>Email Address</label><input type="email" name="email" required
-              placeholder="you@email.com" /></div>
-          <div class="form-row"><label>You Are A</label>
-            <select name="profile" required>
-              <option value="">Select your profile</option>
-              <option>Student</option>
-              <option>Student (Early Bird)</option>
-              <option>Corporate Professional</option>
-              <option>Corporate Professional (Early Bird)</option>
-            </select>
+        <div class="hero-form" style="max-width:360px;padding:24px;margin-left:auto">
+          <form id="heroRegister" onsubmit="return handleRegisterSubmit(event, this);" style="position:relative;z-index:2">
+            <h4>Reserve Your Seat</h4>
+            <p class="sub">Batch starts September 2026 · Limited seats.</p>
+            <div class="form-row"><label>Full Name</label><input type="text" name="name" required
+                placeholder="Your full name" /></div>
+            <div class="form-row"><label>Email Address</label><input type="email" name="email" required
+                placeholder="you@email.com" /></div>
+            <div class="form-row"><label>You Are A</label>
+              <select name="profile" required>
+                <option value="">Select your profile</option>
+                <option>Student</option>
+                <option>Student (Early Bird)</option>
+                <option>Corporate Professional</option>
+                <option>Corporate Professional (Early Bird)</option>
+              </select>
+            </div>
+            <input type="hidden" name="access_key" value="cda75346-0fe0-4ff6-b89a-42ab21b0fdaf" />
+            <input type="hidden" name="subject" value="New Reserve Your Seat submission" />
+            <button type="submit" class="btn btn-full" id="registerBtn">Reserve My Spot →</button>
+            <p class="reg-note">Limited seats per cohort.</p>
+          </form>
+          <div class="hero-form-success" id="heroSuccess">
+            <div class="tick">✓</div>
+            <h4>You're in! We'll reach out within 24 hours.</h4>
+            <p>In the meantime, feel free to email us directly at<br />info@mentesquare.com.</p>
           </div>
-          <input type="hidden" name="access_key" value="ab5e1565-3cc9-4335-b2fc-0e47de9221fe" />
-          <input type="hidden" name="subject" value="New Reserve Your Seat submission" />
-          <button type="submit" class="btn btn-full" id="registerBtn">Reserve My Spot →</button>
-          <p class="reg-note">Limited seats per cohort.</p>
-        </form>
+        </div>
       </div>
     </div>
   </section>
@@ -2604,16 +2637,17 @@
         });
         const data = await res.json();
         if (data.success) {
-          alert("Thanks! We'll reach out within 24 hours.");
-          form.reset();
+          form.style.display = 'none';
+          document.getElementById('heroSuccess').classList.add('visible');
         } else {
+          btn.textContent = originalText;
+          btn.disabled = false;
           alert('Something went wrong, please try again.');
         }
       } catch (err) {
-        alert('Something went wrong, please try again.');
-      } finally {
         btn.textContent = originalText;
         btn.disabled = false;
+        alert('Something went wrong, please try again.');
       }
       return false;
     }

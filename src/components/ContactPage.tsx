@@ -145,6 +145,7 @@ const FONT_HREF =
 export default function ContactPage() {
   const [navOpen, setNavOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [loaderHidden, setLoaderHidden] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -194,8 +195,9 @@ export default function ContactPage() {
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
+    setSubmitError(false);
     const formData = new FormData(e.currentTarget);
-    formData.append("access_key", "38931307-a00f-4c4f-927c-6f7c5e57c106"); // Replace with your real key
+    formData.append("access_key", "cda75346-0fe0-4ff6-b89a-42ab21b0fdaf");
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -207,10 +209,10 @@ export default function ContactPage() {
         setSubmitted(true);
         e.currentTarget.reset();
       } else {
-        alert("Something went wrong, please try again.");
+        setSubmitError(true);
       }
     } catch (error) {
-      alert("Something went wrong, please try again.");
+      setSubmitError(true);
     }
   };
 
@@ -307,6 +309,11 @@ export default function ContactPage() {
                   <button type="submit" className="btn btn-primary btn-full">
                     Send Message →
                   </button>
+                  {submitError && (
+                    <p style={{ marginTop: 12, color: "#e53e3e", fontSize: ".85rem", textAlign: "center" }}>
+                      Something went wrong — please try again or email us at info@mentesquare.com.
+                    </p>
+                  )}
                   <p className="form-note">We typically respond within 24 hours.</p>
                 </div>
               </form>
