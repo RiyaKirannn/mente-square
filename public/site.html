@@ -28,6 +28,9 @@
       --glass-border: rgba(255, 255, 255, 0.18);
       --shadow: 0 20px 60px -20px rgba(0, 137, 123, .35);
       --radius: 16px;
+      --gold: #F5A623;
+      --gold-dark: #E08E0B;
+      --gold-grad: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
     }
 
     * {
@@ -157,6 +160,18 @@
       color: #fff
     }
 
+    .btn-gold {
+      background: var(--gold-grad);
+      color: var(--ink);
+      box-shadow: 0 10px 24px -8px rgba(245, 158, 11, .5)
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      background: var(--gold-dark);
+      box-shadow: 0 16px 32px -10px rgba(245, 158, 11, .6)
+    }
+
     /* Floating shapes */
     .shape {
       position: absolute;
@@ -205,7 +220,8 @@
     .nav-inner {
       display: flex;
       align-items: center;
-      justify-content: space-between
+      justify-content: space-between;
+      position: relative
     }
 
     .logo {
@@ -472,12 +488,16 @@
       z-index: 2;
       animation: fadeInUp .5s ease forwards
     }
-    .hero-form-success.visible { display: block }
+
+    .hero-form-success.visible {
+      display: block
+    }
+
     .hero-form-success .tick {
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      background: rgba(255,255,255,.22);
+      background: rgba(255, 255, 255, .22);
       color: #fff;
       display: flex;
       align-items: center;
@@ -485,11 +505,33 @@
       font-size: 1.8rem;
       font-weight: 700;
       margin: 0 auto 18px;
-      border: 2px solid rgba(255,255,255,.5)
+      border: 2px solid rgba(255, 255, 255, .5)
     }
-    .hero-form-success h4 { color: #fff; font-family: 'Syne'; font-size: 1.15rem; margin-bottom: 10px }
-    .hero-form-success p { color: rgba(255,255,255,.85); font-size: .88rem; line-height: 1.6 }
-    @keyframes fadeInUp { from { opacity:0; transform:translateY(18px) } to { opacity:1; transform:translateY(0) } }
+
+    .hero-form-success h4 {
+      color: #fff;
+      font-family: 'Syne';
+      font-size: 1.15rem;
+      margin-bottom: 10px
+    }
+
+    .hero-form-success p {
+      color: rgba(255, 255, 255, .85);
+      font-size: .88rem;
+      line-height: 1.6
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
 
     /* Trainer avatar motion */
     @keyframes floaty {
@@ -1305,14 +1347,14 @@
       top: -18px;
       left: 50%;
       transform: translateX(-50%);
-      background: #F59E0B;
+      background: var(--gold-grad);
       color: #fff;
       padding: 9px 22px;
       border-radius: 999px;
-      font-family: 'Syne', sans-serif;
-      font-size: .95rem;
-      font-weight: 800;
-      letter-spacing: .12em;
+      font-family: 'Inter', sans-serif;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .1em;
       text-transform: uppercase;
       box-shadow: 0 10px 24px -8px rgba(245, 158, 11, .55);
       white-space: nowrap
@@ -1745,6 +1787,14 @@
         gap: 32px
       }
 
+      .nav-inner {
+        justify-content: center
+      }
+
+      .nav-inner .logo {
+        margin: 0 auto
+      }
+
       .nav-links {
         display: none;
         position: absolute;
@@ -1763,7 +1813,11 @@
       }
 
       .hamburger {
-        display: flex
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%)
       }
 
       .mockup {
@@ -1807,8 +1861,8 @@
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQs</a>
         <a href="/contact" class="btn btn-primary">Contact</a>
-        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
 
   <div class="topbar" id="topbar" aria-label="Announcements">
@@ -1840,13 +1894,14 @@
             than asking you to pick a specialisation upfront, it gives you a rare, comprehensive view of the Business
             and Industrial-Organisational Psychology landscape — so you can choose your path with confidence.</p>
           <div class="hero-ctas">
-            <a href="https://forms.gle/ckRThBQyEpUayAWF7" target="_blank" rel="noopener" class="btn btn-primary">Enroll
+            <a href="https://forms.gle/ckRThBQyEpUayAWF7" target="_blank" rel="noopener" class="btn btn-gold">Enroll
               Now →</a>
             <a href="#who" class="btn btn-outline">Know More</a>
           </div>
         </div>
         <div class="hero-form" style="max-width:360px;padding:24px;margin-left:auto">
-          <form id="heroRegister" onsubmit="return handleRegisterSubmit(event, this);" style="position:relative;z-index:2">
+          <form id="heroRegister" onsubmit="return handleRegisterSubmit(event, this);"
+            style="position:relative;z-index:2">
             <h4>Reserve Your Seat</h4>
             <p class="sub">Batch starts September 2026 · Limited seats.</p>
             <div class="form-row"><label>Full Name</label><input type="text" name="name" required
