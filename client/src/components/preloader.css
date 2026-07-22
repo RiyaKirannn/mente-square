@@ -1,0 +1,75 @@
+.hidden {
+    overflow: auto;
+}
+
+.home{
+    opacity: 1;
+}
+
+.preloader {
+    z-index: 9999;
+    background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+    row-gap: 20px;
+    background-image: url("../assets/images/mentee_preloader.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: grid;
+    place-items: center;
+}
+
+.preloader .pre-text span{
+    display: inline;
+}
+
+
+.preloader video {
+    height: 100vh;
+    width: 100vw;
+    z-index: -9999;
+}
+
+.preloader .logo{
+    width: 40vw;
+}
+
+@media screen and (max-width: 1100px) {
+    .preloader {
+        background-size: 180vw;
+    }
+}
+
+/*.preloader .logo #leftLogo{*/
+/*    position: absolute;*/
+/*    width: 20vw;*/
+/*    transform: translateX(-7.8rem);*/
+/*    display: inline-block;*/
+/*}*/
+
+/*.preloader .logo #rightLogo{*/
+/*    position: absolute;*/
+/*    width: 20vw;*/
+/*    transform: translateX(7.8rem);*/
+/*    display: inline-block;*/
+/*}*/
+
+@media (max-width: 1200px) {
+    .preloader .logo {
+        width: 60vw;
+    }
+}
+
+@media (max-width: 660px) {
+    .preloader .logo{
+        width: 80vw;
+    }
+}
+
+@media (max-width: 600px)
+{
+    .preloader .pre-text h1{
+        font-size: 100%;
+    }
+}
