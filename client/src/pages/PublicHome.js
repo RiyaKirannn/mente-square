@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+// unused link import removed
 
 // importing aos
 import "aos/dist/aos.css";
@@ -16,16 +16,16 @@ import { Footer } from "../components/Footer";
 gsap.registerPlugin(ScrollTrigger);
 
 export const PublicHome = () => {
-  let timer;
+  const timerRef = useRef(null);
   const firstRender = useRef(true);
   useEffect(() => {
     if (firstRender.current) {
-      timer = setInterval(() => {
+      timerRef.current = setInterval(() => {
         openPopUp();
       }, 5000);
       firstRender.current = false;
     }
-  });
+  }, []);
 
   const nav = useNavigate();
   const main = useRef();
@@ -34,7 +34,7 @@ export const PublicHome = () => {
   const service = useRef();
 
   function openPopUp() {
-    clearInterval(timer);
+    clearInterval(timerRef.current);
     let pop = document.getElementById("pop");
     let popO = document.getElementById("popO");
     if (!pop || !popO) return;
@@ -46,17 +46,7 @@ export const PublicHome = () => {
     }, 200);
   }
 
-  function closePopUp() {
-    let pop = document.getElementById("pop");
-    let popO = document.getElementById("popO");
-    if (!pop || !popO) return;
-    popO.style.opacity = "0";
-    pop.style.opacity = "0";
-    setTimeout(() => {
-      popO.style.display = "none";
-      pop.style.display = "none";
-    }, 200);
-  }
+
 
   useLayoutEffect(() => {
     const ctx = gsap.context((self) => {
@@ -135,16 +125,14 @@ export const PublicHome = () => {
               </span>
               <span className="first-text">
                 <a
-                  href="http://localhost:5173"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/microsite/site.html"
                   style={{
-                    color: "#ffffff",
                     textDecoration: "none",
                     fontWeight: 700,
+                    color: "#00675c"
                   }}
                 >
-                  BPsy
+                  PeopleProcess: Business Psychology in Action
                 </a>
               </span>
             </div>
@@ -243,10 +231,62 @@ export const PublicHome = () => {
           </div>
         </section>
         {/*  Pricing Section  */}
-        <section className="ftco-section ftco-no-pt pricing-sect" id="prPack" style={{ minHeight: "220px" }}>
-          <div className="container mt-5">
-            <div className="row justify-content-center pb-5">
-              <div className="col-md-7 text-center heading-section">
+        <section className="ftco-section ftco-no-pt pricing-sect d-flex align-items-center" id="prPack" style={{ minHeight: "280px", padding: "60px 0 80px" }}>
+          <div className="container mt-2">
+            <div className="row justify-content-center">
+              <div className="col-md-10 text-center">
+                <h3 className="mb-3 fw-bold" style={{ color: "#006055", fontFamily: "'Montserrat', sans-serif", fontSize: "1.6rem" }}>
+                  PeopleProcess: Business Psychology in Action
+                </h3>
+                <p className="mb-4" style={{ color: "#333333", fontSize: "1.05rem", fontFamily: "'Montserrat', sans-serif", lineHeight: "1.7", fontWeight: 500 }}>
+                  A comprehensive 3-Month Live Online Certification Programme designed and delivered by International Faculty. Master the intersection of human behavior and business strategy.{" "}
+                  <span style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "5px",
+                    background: "linear-gradient(90deg, #FBBF24, #F59E0B)",
+                    color: "#1C1C2E",
+                    fontWeight: 700,
+                    fontSize: "0.85rem",
+                    borderRadius: "999px",
+                    padding: "4px 14px",
+                    letterSpacing: "0.3px",
+                    verticalAlign: "middle",
+                    boxShadow: "0 3px 10px rgba(245, 158, 11, 0.4)",
+                    whiteSpace: "nowrap",
+                  }}>
+                    🏷️ Early bird: Save up to ₹3K!
+                  </span>
+                </p>
+                <a
+                  href="/microsite/site.html"
+                  className="btn btn-light fw-bold px-4 py-2.5 shadow-sm"
+                  style={{
+                    borderRadius: "30px",
+                    color: "#ffffff",
+                    backgroundColor: "#00897B",
+                    fontSize: "1rem",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.5px",
+                    fontFamily: "'Montserrat', sans-serif",
+                    border: "none",
+                    padding: "12px 32px",
+                    boxShadow: "0 4px 15px rgba(0, 137, 123, 0.3)",
+                    transition: "all 0.25s ease"
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.backgroundColor = "#00675c";
+                    e.currentTarget.style.boxShadow = "0 8px 22px rgba(0, 103, 92, 0.45)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.backgroundColor = "#00897B";
+                    e.currentTarget.style.boxShadow = "0 4px 15px rgba(0, 137, 123, 0.3)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
+                >
+                  Explore Course <i className="fa-solid fa-arrow-right ms-2"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -372,7 +412,7 @@ export const PublicHome = () => {
                   className="btn gyaan-guides-btn"
                   onClick={() => nav("/gyaan-guides")}
                 >
-                  Explore Gyaan Guides
+                  Our Gyaan Guides
                 </button>
               </div>
 

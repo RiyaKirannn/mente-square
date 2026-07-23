@@ -17,6 +17,7 @@ import { ChangePassword } from "./pages/ChangePassword";
 import SoftSkillsPage from "./pages/LDInterventions";
 import MentoringPage from "./pages/Mentoring";
 import BrandingPage from "./pages/Branding";
+import ContactPage from "./components/ContactPage";
 
 function App() {
   const { privileges, updatePrivileges } = useUsersContext();
@@ -80,6 +81,7 @@ function App() {
                 <Route path={"/LDInterventions"} element={<SoftSkillsPage />} />
                 <Route path={"/MentoringPage"} element={<MentoringPage />} />
                 <Route path={"/BrandingPage"} element={<BrandingPage />} />
+                <Route path={"/contact"} element={<ContactPage />} />
               </Route>
             ) : null}
             {Number(privileges) === 1 ? (

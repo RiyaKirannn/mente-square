@@ -15,15 +15,23 @@ export const Footer = () => {
                   className="ftco-heading-2 logo d-flex"
                   style={{ position: "relative", zIndex: 2 }}
                 >
-                  <a
-                    className="navbar-brand align-items-center"
-                    href="index.html"
+                  <Link
+                    className="navbar-brand d-flex align-items-center"
+                    to="/home"
+                    style={{ gap: "10px" }}
                   >
-                    MenteSquare
-                    <span>Online Mentoring</span>
-                  </a>
+                    <img
+                      src="/assets/images/msq_logo.png"
+                      alt="MenteSquare Logo"
+                      style={{ width: "40px", height: "40px", objectFit: "contain" }}
+                    />
+                    <span style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, color: "#1eb2a6", fontSize: "1.6rem" }}>
+                      MenteSquare
+                      <span style={{ fontSize: "12px", display: "block", color: "#666", fontWeight: 500 }}>Online Mentoring</span>
+                    </span>
+                  </Link>
                 </h2>
-                <p className="fw-bold">Where the focus is on you!</p>
+                <p className="fw-bold">Follow us on</p>
                 <ul className="ftco-footer-social list-unstyled mt-2">
                   <li>
                     <a

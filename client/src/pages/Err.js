@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import {useNavigate} from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Err() {
     const navigate = useNavigate()
@@ -28,7 +28,7 @@ export default function Err() {
                         <span className="error-redirect d-block">Don't worry, we're taking you back to the website in {time} seconds</span>
                     </div>
                     <div className="error-logo">
-                        <img src="assets/images/msq_logo.png" alt="MenteSquare Logo"/>
+                        <img src="assets/images/msq_logo.png" alt="MenteSquare Logo" />
                     </div>
                 </div>
             </div>
