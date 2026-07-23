@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bgColor: #5b8e9f;
+    --bgSec: #6dc1c1;
+    --bgMix: #3b7e91;
+    --bg: rgb(246 247 248/1);
+    --bxShadow: -3px 0px 50px rgba(169, 222, 249, 0.25);
+}
+
+.sidepane {
+    position: fixed;
+    width: 200px;
+    min-height: 100vh;
+    background-color: var(--bgMix);
+    z-index: 1000;
+}
+
+@keyframes close {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: -200px;
+    }
+}
+
+@keyframes open {
+    from {
+        left: -200px;
+    }
+
+    to {
+        left: 0px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        left: 0;
+    }
+
+    .sidepane {
+        left: -200px;
+    }
+}
+
+@media (min-width: 769px) {
+    .dashboard {
+        position: absolute;
+        left: 200px;
+    }
+
+    .toggle {
+        display: none;
+    }
+    
+    #navbar {
+        width: calc(100dvw - 200px);
+    }
+    #main {
+        width: calc(100dvw - 200px);
+    }
+}
+
+#navbar {
+    background-color: white;
+    box-shadow: var(--bxShadow);
+    padding: 10px 5px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.toggle {
+    position: absolute;
+    right: -27px;
+    top: 3px;
+    color: var(--bgMix);
+    height: 100%;
+}
+
+.dashboard {
+    background-color: var(--bg);
+    min-height: 100dvh;
+}
+
+#logout {
+    border-radius: 50%;
+    margin-left: 3px;
+    margin-right: 7px;
+}
+
+#logout:hover {
+    transition: 300ms;
+    background-color: #DC4C64;
+    color: white !important;
+}
+
+.logo-wrapper {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#logo {
+    height: 70px;
+    width: auto;
+    background-color: white;
+}
+
+.menu-list {
+    color: white;
+    margin-top: 20px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 30px;
+    margin-top: 7px;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background-color: var(--bgSec);
+    transition: 300ms;
+}
+
+ms-btn{
+    background-color: var(--bgColor);
+}
